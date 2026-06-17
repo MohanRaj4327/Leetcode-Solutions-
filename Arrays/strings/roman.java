@@ -2,7 +2,6 @@ import java.util.HashMap;
 
 class Solution {
     public int romanToInt(String s) {
-        // Fix 1 & 2: Use Character keys and change 'H' to 'M'
         HashMap<Character, Integer> map = new HashMap<>();
         map.put('I', 1);
         map.put('V', 5);
@@ -17,8 +16,6 @@ class Solution {
         
         for (int i = 0; i < n; i++) {
             int currentVal = map.get(s.charAt(i));
-            
-            // Fix 3: If a smaller value is before a larger value, subtract it
             if (i < n - 1 && currentVal < map.get(s.charAt(i + 1))) {
                 sum -= currentVal;
             } else {
